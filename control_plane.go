@@ -62,6 +62,12 @@ func (c *ControlPlane) Start() error {
 	if err != nil {
 		return err
 	}
+	
+	_, err = c.operator.RegisterWatcher(model.SubscribeTarget{Namespace: "default", AppName: "foo", Kind: controller.VirtualServiceKind})
+	if err != nil {
+		return err
+	}
+
 	// Run the transport server
 	err = c.server.Run()
 	if err != nil {
