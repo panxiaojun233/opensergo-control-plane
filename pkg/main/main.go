@@ -15,6 +15,7 @@
 package main
 
 import (
+	v3 "github.com/opensergo/opensergo-control-plane/pkg/proto/router/v3"
 	"log"
 
 	"github.com/opensergo/opensergo-control-plane"
@@ -25,6 +26,8 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	r := v3.RouteConfiguration{Name: "123"}
+	r.Name = "1233"
 	err = cp.Start()
 	if err != nil {
 		log.Fatal(err)
